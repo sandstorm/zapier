@@ -1,0 +1,24 @@
+#                                                                        #
+# Default routes configuration for the TYPO3.Setup package               #
+#                                                                        #
+
+# While the setup is active on "setup/index", the URI "setup" is directly handled
+# by the request handler to display a first screen and a loading indicator.
+-
+  name: 'API Ping'
+  uriPattern: 'api-zapier/ping'
+  defaults:
+    '@package':    'Sandstorm.Zapier'
+    '@controller': 'Api'
+    '@action':     'ping'
+    '@format':     'json'
+  appendExceedingArguments: true
+-
+  name: 'API last published nodes'
+  uriPattern: 'api-zapier/last-published-nodes'
+  defaults:
+    '@package':    'Sandstorm.Zapier'
+    '@controller': 'Api'
+    '@action':     'lastPublishedNodes'
+    '@format':     'json'
+  appendExceedingArguments: true

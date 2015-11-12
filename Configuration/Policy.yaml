@@ -1,0 +1,18 @@
+#                                                                        #
+# Security policy for the Neos package                             #
+#                                                                        #
+
+privilegeTargets:
+
+  'TYPO3\Flow\Security\Authorization\Privilege\Method\MethodPrivilege':
+
+    'Sandstorm.Zapier:AllControllerActions':
+      matcher: 'within(TYPO3\Flow\Mvc\Controller\AbstractController) && method(public Sandstorm\Zapier\Controller\.*->(?!initialize).*Action())'
+
+roles:
+
+  'TYPO3.Flow:Everybody':
+    privileges:
+      -
+        privilegeTarget: 'Sandstorm.Zapier:AllControllerActions'
+        permission: GRANT
